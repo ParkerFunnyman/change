@@ -1,56 +1,53 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
-const SPEED = 300.0  # Max slope speed
-const JUMP_VELOCITY = -400.0
-const WHEEL_RADIUS = 16.0
-const FLAT_FRICTION = 200.0  # Controls how quickly the ball slows on flat ground
+const SPEED = 1000.0  # Max rolling speed
+const JUMP_VELOCITY = -800.0
+const WHEEL_RADIUS = 32.0
+const FLAT_FRICTION = 00.0  # Smooth deceleration force
+
+var lives := 5
 
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
-	# Jump input
+	# Handle jumping
 	if Input.is_action_just_pressed("click") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY + velocity.y
 
 	var direction := Input.get_axis("left", "right")
 
 	if is_on_floor():
 		var floor_normal = get_floor_normal()
+		var angle_from_up = abs(floor_normal.angle_to(Vector2.UP))
+		if angle_from_up > 0.001:
+			# We are on a slope — compute slope direction
+			var slope_dir = Vector2(floor_normal.y, -floor_normal.x).normalized()
 
-		# Check if on a slope
-		if abs(floor_normal.angle_to(Vector2.UP)) > 0.0001:
-			# Compute slope direction and roll automatically
-			var slope_direction = Vector2(floor_normal.y, -floor_normal.x).normalized()
+			# Apply force downhill
+			var gravity_force = get_gravity().y
+			velocity -= slope_dir * gravity_force * delta
 
-			# Apply slope-rolling force
-			var gravity_strength = get_gravity().y
-			var slope_acceleration = slope_direction * gravity_strength * delta
-			velocity -= slope_acceleration * 15.0
-
-			# Clamp max speed
+			# Clamp speed
 			if velocity.length() > SPEED:
 				velocity = velocity.normalized() * SPEED
 		else:
-			# Flat ground — apply smooth friction
-			if abs(velocity.x) < 5.0:
-				velocity.x = 0.0
-			else:
-				velocity.x = move_toward(velocity.x, 0, FLAT_FRICTION * delta)
+			# Flat ground — apply friction
+			velocity.x = move_toward(velocity.x, 0, FLAT_FRICTION * delta)
 	else:
-		# In air — basic directional control
+		# In air — control and gravity
 		velocity.x = direction * SPEED
 		velocity.y += get_gravity().y * delta
 
-	# Store position before move
+	# Store position before moving
 	var prev_position = position
 
 	# Move the character
 	move_and_slide()
 
-	# Rotate sprite based on actual movement
+	# Rotate sprite based on real movement
 	var movement_delta = position - prev_position
 	var distance = movement_delta.length()
 
-	if distance > 0.5:  # Prevent jittery rotation on near-zero motion
+	if distance > 0.1:
 		var direction_sign = sign(movement_delta.x)
-		sprite.rotation += direction_sign * (distance / WHEEL_RADIUS * 0.5)
+		sprite.rotation += direction_sign * (distance / WHEEL_RADIUS)
