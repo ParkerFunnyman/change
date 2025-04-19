@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4sgjkbxj4v3d"]
+
+[ext_resource type="Texture2D" uid="uid://d4kjr1ndoao7t" path="res://art/fluorescentBlue.webp" id="1_2rfae"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1924.0
+offset_bottom = 1104.0
+texture = ExtResource("1_2rfae")
+expand_mode = 2
