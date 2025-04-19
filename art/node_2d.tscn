@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4sgjkbxj4v3d"]
+[gd_scene load_steps=3 format=3 uid="uid://c4sgjkbxj4v3d"]
 
 [ext_resource type="Texture2D" uid="uid://d4kjr1ndoao7t" path="res://art/fluorescentBlue.webp" id="1_2rfae"]
+[ext_resource type="Texture2D" uid="uid://b08drmxee18ch" path="res://art/circle_test.png" id="2_f6d0q"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +10,8 @@ offset_right = 1924.0
 offset_bottom = 1104.0
 texture = ExtResource("1_2rfae")
 expand_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(526, 492)
+scale = Vector2(0.0816667, 0.0816667)
+texture = ExtResource("2_f6d0q")
