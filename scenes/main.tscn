@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c4sgjkbxj4v3d"]
 
-[ext_resource type="Texture2D" uid="uid://ci7yk8i5vjwg3" path="res://art/thisIsARectangle.png" id="1_4qx8g"]
-[ext_resource type="Script" path="res://scenes/MyCharacter.gd" id="3_8vwfs"]
-[ext_resource type="Texture2D" uid="uid://droq62d02205p" path="res://art/penny.png" id="3_f53em"]
+[ext_resource type="Texture2D" uid="uid://ci7yk8i5vjwg3" path="res://art/thisIsARectangle.png" id="1_bfcht"]
+[ext_resource type="Script" path="res://scripts/MyCharacter.gd" id="2_cvida"]
+[ext_resource type="Texture2D" uid="uid://droq62d02205p" path="res://art/penny.png" id="3_wk4yt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jatl"]
 size = Vector2(667, 130)
@@ -24,7 +24,7 @@ freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid"]
 position = Vector2(1393.25, -666.014)
-texture = ExtResource("1_4qx8g")
+texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid"]
 position = Vector2(1394.56, -668.893)
@@ -38,7 +38,7 @@ freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid2"]
 position = Vector2(1984.05, -771.594)
-texture = ExtResource("1_4qx8g")
+texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid2"]
 position = Vector2(1989.09, -772.383)
@@ -51,7 +51,7 @@ freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid3"]
 position = Vector2(885.902, 510.855)
-texture = ExtResource("1_4qx8g")
+texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid3"]
 position = Vector2(886.144, 511.826)
@@ -65,30 +65,46 @@ freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid4"]
 position = Vector2(114.874, 665.28)
-texture = ExtResource("1_4qx8g")
+texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid4"]
 position = Vector2(106.451, 663.847)
 shape = SubResource("RectangleShape2D_7jatl")
 
 [node name="RectangleRigid5" type="RigidBody2D" parent="."]
-position = Vector2(1145, 3026)
-scale = Vector2(500, 0.5)
+position = Vector2(150, 3026)
+scale = Vector2(10, 0.5)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 
 [node name="Sprite2D" type="Sprite2D" parent="RectangleRigid5"]
 position = Vector2(114.874, 665.28)
-texture = ExtResource("1_4qx8g")
+texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid5"]
-position = Vector2(106.451, 663.847)
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid6" type="RigidBody2D" parent="."]
+position = Vector2(-150, 2500)
+rotation = 1.5708
+scale = Vector2(10, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid6"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid6"]
+position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(500, 0)
-script = ExtResource("3_8vwfs")
+script = ExtResource("2_cvida")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -99,4 +115,4 @@ position_smoothing_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.320865, 0.320865)
-texture = ExtResource("3_f53em")
+texture = ExtResource("3_wk4yt")
