@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4sgjkbxj4v3d"]
+[gd_scene load_steps=4 format=3 uid="uid://c4sgjkbxj4v3d"]
 
 [ext_resource type="Texture2D" uid="uid://d4kjr1ndoao7t" path="res://art/fluorescentBlue.webp" id="1_2rfae"]
 [ext_resource type="Texture2D" uid="uid://b08drmxee18ch" path="res://art/circle_test.png" id="2_f6d0q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33778"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,7 +13,11 @@ offset_bottom = 1104.0
 texture = ExtResource("1_2rfae")
 expand_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(526, 492)
-scale = Vector2(0.0816667, 0.0816667)
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(720, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture = ExtResource("2_f6d0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_33778")
