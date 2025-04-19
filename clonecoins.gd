@@ -1,6 +1,6 @@
 extends Node2D
 
-var coin_scene = preload("res://scenes/Coin.tscn")
+var coin_scene: PackedScene  # drag Coin.tscn in the Inspector
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("mouse_left"):

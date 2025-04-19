@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4sgjkbxj4v3d"]
+[gd_scene load_steps=6 format=3 uid="uid://c4sgjkbxj4v3d"]
 
 [ext_resource type="Texture2D" uid="uid://ci7yk8i5vjwg3" path="res://art/thisIsARectangle.png" id="1_4qx8g"]
-[ext_resource type="Texture2D" uid="uid://b08drmxee18ch" path="res://art/circle_test.png" id="2_sfuyc"]
+[ext_resource type="Script" path="res://scenes/MyCharacter.gd" id="3_8vwfs"]
+[ext_resource type="Texture2D" uid="uid://droq62d02205p" path="res://art/penny.png" id="3_f53em"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jatl"]
 size = Vector2(667, 130)
@@ -12,7 +13,8 @@ radius = 152.0
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
-rotation = 0.244346
+position = Vector2(-150, 0)
+rotation = 0.507891
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
@@ -25,19 +27,19 @@ texture = ExtResource("1_4qx8g")
 position = Vector2(886.144, 511.826)
 shape = SubResource("RectangleShape2D_7jatl")
 
-[node name="clonecoins" type="Node2D" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 
-[node name="CoinRigidBody2D" type="RigidBody2D" parent="clonecoins"]
-position = Vector2(720, 500)
-scale = Vector2(0.5, 0.5)
-mass = 0.006
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(500, 0)
+script = ExtResource("3_8vwfs")
 
-[node name="Sprite2D" type="Sprite2D" parent="clonecoins/CoinRigidBody2D"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_sfuyc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="clonecoins/CoinRigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_33778")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.320865, 0.320865)
+texture = ExtResource("3_f53em")
