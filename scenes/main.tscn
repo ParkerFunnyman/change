@@ -139,6 +139,22 @@ texture = ExtResource("1_bfcht")
 position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
+[node name="PrimaryPlatformRigid3" type="RigidBody2D" parent="."]
+position = Vector2(7327, 5093)
+rotation = -0.1309
+scale = Vector2(10, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PrimaryPlatformRigid3"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid3"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
 [node name="RectangleRigid6" type="RigidBody2D" parent="."]
 position = Vector2(-150, 2500)
 rotation = 1.5708
@@ -191,10 +207,3 @@ scale = Vector2(0.290444, 0.290444)
 texture = ExtResource("3_wk4yt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-texture_filter = 1
-offset_right = 40.0
-offset_bottom = 23.0
-scale = Vector2(3.125, 3.125)
-text = "hehe there's text here"
