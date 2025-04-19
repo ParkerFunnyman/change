@@ -12,22 +12,79 @@ radius = 152.0
 
 [node name="Node2D" type="Node2D"]
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+[node name="Inital Curve" type="CanvasGroup" parent="."]
 position = Vector2(-150, 0)
 rotation = 0.507891
+
+[node name="RectangleRigid" type="RigidBody2D" parent="Inital Curve"]
+rotation = 0.958186
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid"]
+position = Vector2(1393.25, -666.014)
+texture = ExtResource("1_4qx8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid"]
+position = Vector2(1394.56, -668.893)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid2" type="RigidBody2D" parent="Inital Curve"]
+rotation = 1.02102
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid2"]
+position = Vector2(1984.05, -771.594)
+texture = ExtResource("1_4qx8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid2"]
+position = Vector2(1989.09, -772.383)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid3" type="RigidBody2D" parent="Inital Curve"]
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid3"]
 position = Vector2(885.902, 510.855)
 texture = ExtResource("1_4qx8g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid3"]
 position = Vector2(886.144, 511.826)
 shape = SubResource("RectangleShape2D_7jatl")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="RectangleRigid4" type="RigidBody2D" parent="Inital Curve"]
+rotation = -0.31765
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Inital Curve/RectangleRigid4"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_4qx8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inital Curve/RectangleRigid4"]
+position = Vector2(106.451, 663.847)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid5" type="RigidBody2D" parent="."]
+position = Vector2(1145, 3026)
+scale = Vector2(500, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid5"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_4qx8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid5"]
+position = Vector2(106.451, 663.847)
+shape = SubResource("RectangleShape2D_7jatl")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(500, 0)

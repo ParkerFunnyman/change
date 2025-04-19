@@ -1,42 +1,56 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 300.0  # Max slope speed
 const JUMP_VELOCITY = -400.0
 const WHEEL_RADIUS = 16.0
+const FLAT_FRICTION = 200.0  # Controls how quickly the ball slows on flat ground
 
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
-	# Apply gravity
-	if not is_on_floor():
-		velocity.y += get_gravity().y * delta
-
-	# Jump
+	# Jump input
 	if Input.is_action_just_pressed("click") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	var direction := Input.get_axis("left", "right")
 
 	if is_on_floor():
-		if direction != 0:
-			var floor_normal := get_floor_normal()
-			var slope_direction := Vector2(floor_normal.y, -floor_normal.x).normalized()
+		var floor_normal = get_floor_normal()
 
-			# Ensure slope direction matches input direction
-			if sign(slope_direction.x) != sign(direction):
-				slope_direction = -slope_direction
+		# Check if on a slope
+		if abs(floor_normal.angle_to(Vector2.UP)) > 0.0001:
+			# Compute slope direction and roll automatically
+			var slope_direction = Vector2(floor_normal.y, -floor_normal.x).normalized()
 
-			velocity = slope_direction * SPEED
+			# Apply slope-rolling force
+			var gravity_strength = get_gravity().y
+			var slope_acceleration = slope_direction * gravity_strength * delta
+			velocity -= slope_acceleration * 15.0
+
+			# Clamp max speed
+			if velocity.length() > SPEED:
+				velocity = velocity.normalized() * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			# Flat ground — apply smooth friction
+			if abs(velocity.x) < 5.0:
+				velocity.x = 0.0
+			else:
+				velocity.x = move_toward(velocity.x, 0, FLAT_FRICTION * delta)
 	else:
-		# Air movement
+		# In air — basic directional control
 		velocity.x = direction * SPEED
+		velocity.y += get_gravity().y * delta
 
-	# Move and rotate
+	# Store position before move
 	var prev_position = position
+
+	# Move the character
 	move_and_slide()
+
+	# Rotate sprite based on actual movement
 	var movement_delta = position - prev_position
 	var distance = movement_delta.length()
-	var direction_sign = sign(movement_delta.x)
-	sprite.rotation += direction_sign * (distance / WHEEL_RADIUS) * 0.5
+
+	if distance > 0.5:  # Prevent jittery rotation on near-zero motion
+		var direction_sign = sign(movement_delta.x)
+		sprite.rotation += direction_sign * (distance / WHEEL_RADIUS * 0.5)
