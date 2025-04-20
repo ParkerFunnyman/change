@@ -7,7 +7,7 @@ const WHEEL_RADIUS = 32.0
 const FLAT_FRICTION = 250.0
 
 # Coyote time (allows jump slightly after leaving ground)
-var coyote_time := 0.5
+var coyote_time := 0.2
 var coyote_timer := 0.0
 
 # Jump buffer (allows jump slightly before hitting ground)
