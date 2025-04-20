@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl5md8sh5oy4s"]
+[gd_scene load_steps=3 format=3 uid="uid://bl5md8sh5oy4s"]
 
 [ext_resource type="Script" path="res://scripts/Title Screen.gd" id="1_2hr4u"]
+[ext_resource type="Texture2D" uid="uid://clo5b6r1jjts8" path="res://art/wordart.png" id="2_cxc5s"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -13,10 +14,19 @@ grow_vertical = 2
 [node name="Start Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 819.0
-offset_top = 475.0
+offset_top = 675.0
 offset_right = 1101.0
-offset_bottom = 605.0
+offset_bottom = 805.0
 text = "Start"
 script = ExtResource("1_2hr4u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 72.0
+offset_right = 1689.0
+offset_bottom = 606.0
+texture = ExtResource("2_cxc5s")
+expand_mode = 1
 
 [connection signal="pressed" from="Start Button" to="Start Button" method="_on_pressed"]
