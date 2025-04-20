@@ -336,6 +336,101 @@ texture = ExtResource("1_bfcht")
 position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
+[node name="Penny Jail" type="CanvasGroup" parent="."]
+position = Vector2(6048, 3872.65)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+
+[node name="RectangleRigid14" type="RigidBody2D" parent="Penny Jail"]
+position = Vector2(428.708, 1658)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Penny Jail/RectangleRigid14"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penny Jail/RectangleRigid14"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid13" type="RigidBody2D" parent="Penny Jail"]
+position = Vector2(230.715, 3588)
+scale = Vector2(1.5, 1)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Penny Jail/RectangleRigid13"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penny Jail/RectangleRigid13"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid15" type="RigidBody2D" parent="Penny Jail"]
+position = Vector2(174.715, 3596)
+rotation = -1.5708
+scale = Vector2(3, 1)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Penny Jail/RectangleRigid15"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penny Jail/RectangleRigid15"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="Label" type="Label" parent="Penny Jail"]
+offset_left = 42.7171
+offset_top = 4102.0
+offset_right = 542.717
+offset_bottom = 4229.0
+rotation = -1.48702
+scale = Vector2(5, 5)
+text = "welcome to penny jail >:)
+
+please don't leave we can't afford a guard :(
+
+it's kind of an honors system "
+
+[node name="RectangleRigid13" type="RigidBody2D" parent="."]
+position = Vector2(4805, 7851)
+rotation = 1.5708
+scale = Vector2(3.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid13"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid13"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid14" type="RigidBody2D" parent="."]
+position = Vector2(5393, 7851)
+rotation = 1.5708
+scale = Vector2(3.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid14"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid14"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
 [node name="Penny" type="CharacterBody2D" parent="."]
 position = Vector2(500, 0)
 script = ExtResource("2_cvida")
