@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://y4st8stdw8or"]
+
+[ext_resource type="Script" path="res://GUI/labels.gd" id="1_l2uuj"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(5, 5)
+text = "Budget: ¢"
+script = ExtResource("1_l2uuj")
+
+[node name="value" type="Label" parent="Label"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 73.0
+offset_top = 0.4
+offset_right = 133.0
+offset_bottom = 23.4
+text = "5"

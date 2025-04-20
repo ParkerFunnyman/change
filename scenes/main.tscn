@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4sgjkbxj4v3d"]
+[gd_scene load_steps=11 format=3 uid="uid://c4sgjkbxj4v3d"]
 
 [ext_resource type="Texture2D" uid="uid://ci7yk8i5vjwg3" path="res://art/thisIsARectangle.png" id="1_bfcht"]
 [ext_resource type="Texture2D" uid="uid://odrp585asoa0" path="res://art/blurred background.png" id="1_v50q7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3hgssh6fhgsh" path="res://art/funnel half.png" id="2_x74xa"]
 [ext_resource type="Texture2D" uid="uid://c01oprtntuqq6" path="res://art/funnel half but mirrored.png" id="3_boamt"]
 [ext_resource type="Texture2D" uid="uid://droq62d02205p" path="res://art/penny.png" id="3_wk4yt"]
+[ext_resource type="PackedScene" uid="uid://y4st8stdw8or" path="res://GUI/GUI.tscn" id="7_n6dwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jatl"]
 size = Vector2(667, 130)
@@ -16,9 +17,9 @@ size = Vector2(1329, 1290)
 [sub_resource type="CircleShape2D" id="CircleShape2D_33778"]
 radius = 152.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Walmart Background" type="TextureRect" parent="."]
 offset_left = -1259.0
 offset_top = -1063.0
 offset_right = 2773.0
@@ -93,6 +94,7 @@ offset_bottom = 2445.0
 texture = ExtResource("2_x74xa")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+visible = false
 position = Vector2(1837.5, 1584)
 lock_rotation = true
 freeze = true
@@ -124,9 +126,9 @@ position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
 [node name="PrimaryPlatformRigid2" type="RigidBody2D" parent="."]
-position = Vector2(6817, 3688)
+position = Vector2(5907, 3568)
 rotation = 0.1309
-scale = Vector2(10, 0.5)
+scale = Vector2(5, 0.5)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
@@ -140,7 +142,7 @@ position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
 [node name="PrimaryPlatformRigid3" type="RigidBody2D" parent="."]
-position = Vector2(7327, 5093)
+position = Vector2(7939, 4582)
 rotation = -0.1309
 scale = Vector2(10, 0.5)
 gravity_scale = 0.0
@@ -152,6 +154,72 @@ position = Vector2(114.874, 665.28)
 texture = ExtResource("1_bfcht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid3"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="Node2D" type="Node2D" parent="PrimaryPlatformRigid3"]
+
+[node name="PrimaryPlatformRigid4" type="RigidBody2D" parent="."]
+position = Vector2(4729, 5005)
+rotation = -0.1309
+scale = Vector2(1.185, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PrimaryPlatformRigid4"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid4"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="PrimaryPlatformRigid5" type="RigidBody2D" parent="."]
+position = Vector2(3584, 5156)
+rotation = -0.1309
+scale = Vector2(1.185, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PrimaryPlatformRigid5"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid5"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="PrimaryPlatformRigid6" type="RigidBody2D" parent="."]
+position = Vector2(847, 5516)
+rotation = -0.1309
+scale = Vector2(4.535, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PrimaryPlatformRigid6"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid6"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="PrimaryPlatformRigid7" type="RigidBody2D" parent="."]
+position = Vector2(976, 6303)
+rotation = 0.1309
+scale = Vector2(8, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PrimaryPlatformRigid7"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrimaryPlatformRigid7"]
 position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
@@ -188,22 +256,103 @@ texture = ExtResource("1_bfcht")
 position = Vector2(113.3, 660)
 shape = SubResource("RectangleShape2D_7jatl")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="RectangleRigid8" type="RigidBody2D" parent="."]
+position = Vector2(938, 6552)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid8"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid8"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid9" type="RigidBody2D" parent="."]
+position = Vector2(2070, 6612)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid9"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid9"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid10" type="RigidBody2D" parent="."]
+position = Vector2(3182, 6760)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid10"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid10"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid11" type="RigidBody2D" parent="."]
+position = Vector2(3182, 6144)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid11"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid11"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="RectangleRigid12" type="RigidBody2D" parent="."]
+position = Vector2(6378, 3816)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+gravity_scale = 0.0
+lock_rotation = true
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="RectangleRigid12"]
+position = Vector2(114.874, 665.28)
+texture = ExtResource("1_bfcht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RectangleRigid12"]
+position = Vector2(113.3, 660)
+shape = SubResource("RectangleShape2D_7jatl")
+
+[node name="Penny" type="CharacterBody2D" parent="."]
 position = Vector2(500, 0)
 script = ExtResource("2_cvida")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Penny"]
 position = Vector2(400, 52)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_33778")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Penny"]
+visible = false
 position = Vector2(396, 72)
 position_smoothing_enabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Penny"]
 position = Vector2(399, 50)
 scale = Vector2(0.290444, 0.290444)
 texture = ExtResource("3_wk4yt")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" parent="." instance=ExtResource("7_n6dwv")]
