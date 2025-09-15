@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ci7yk8i5vjwg3" path="res://art/thisIsARectangle.png" id="1_bfcht"]
 [ext_resource type="Texture2D" uid="uid://deklu74ky2b32" path="res://art/darkRedGray.png" id="1_o223v"]
 [ext_resource type="Texture2D" uid="uid://odrp585asoa0" path="res://art/blurred background.png" id="1_v50q7"]
-[ext_resource type="Script" path="res://scripts/MyCharacter.gd" id="2_cvida"]
+[ext_resource type="Script" uid="uid://jvp75e1aj2gi" path="res://scripts/MyCharacter.gd" id="2_cvida"]
 [ext_resource type="Texture2D" uid="uid://c3hgssh6fhgsh" path="res://art/funnel half.png" id="2_x74xa"]
 [ext_resource type="Texture2D" uid="uid://c01oprtntuqq6" path="res://art/funnel half but mirrored.png" id="3_boamt"]
 [ext_resource type="Texture2D" uid="uid://droq62d02205p" path="res://art/penny.png" id="3_wk4yt"]
